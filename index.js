@@ -100,12 +100,25 @@ console.log("Total Profits/Losses £:" + netTotalProfitLosses);
 
 // The average of the changes in Profit/Losses over the entire period
 
-var averageChanges = 0;
-for (var i = 0; i < finances.length; i++) {
-  averageChanges = averageChanges + finances[i][1];
-}
+function calculateAverageChange(finances) {
+  var sumOfChanges = 0;
 
-console.log(averageChanges);
+  for (var i = 1; i < finances.length; i++) {
+    var change = finances[i] - finances[i - 1];
+    sumOfChanges += change;
+  }
+  var averageChange = sumOfChanges / (finances.length - 1);
+
+  return averageChange;
+}
+var averageChange = calculateAverageChange(finances);
+
+// var averageChanges = 0;
+// for (var i = 0; i < finances.length; i++) {
+averageChanges = averageChanges + finances[i][1];
+// }
+
+// console.log(averageChanges);
 // will need to calculate the changes between each value and then divide them by 86
 
 // You will need to track what the total change in profit/losses
