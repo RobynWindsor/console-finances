@@ -125,7 +125,8 @@ var totalChange = 0;
 for (let i = 0; i < finances.length; i++) {
   var currentMonth = finances[i][1];
 
-  // if (!finances[i + 1]) return;
+  // if (!finances[i + 1]) return; - this gives an error stating an illegel retun was made and that is because the code has nowehere to return to. It would need to be in a function
+
   if (finances[i + 1]) {
     var nextMonth = finances[i + 1][1];
     var monthlyChange = nextMonth - currentMonth;
