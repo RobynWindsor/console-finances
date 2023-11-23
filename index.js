@@ -98,12 +98,48 @@ for (var i = 0; i < finances.length; i++) {
 }
 console.log("Total Profits/Losses £:" + netTotalProfitLosses);
 
+// var totalChanges = 0;
+// var AverageOfChanges = 0;
+// for (var i = 0; i < finances.length; i++) {
+//   totalChanges = totalChanges / finances.length[i - 1][1];
+// }
+// console.log(totalChanges);
+
 // The average of the changes in Profit/Losses over the entire period
 
 // var averageChanges = 0;
 // for (var i = 0; i < finances.length; i++) {
-averageChanges = averageChanges + finances[i][1];
+// averageChanges = averageChanges + finances[i][1];
 // }
+// ["Jan-2010", 867884],
+// ["Feb-2010", 984655],
+// ["Mar-2010", 322013],
+// ["Apr-2010", -69417],
+// ["May-2010", 310503],
+
+// const jan = finances[0][1];
+// const feb = finances[1][1];
+
+var totalChange = 0;
+
+for (let i = 0; i < finances.length; i++) {
+  var currentMonth = finances[i][1];
+
+  // if (!finances[i + 1]) return;
+  if (finances[i + 1]) {
+    var nextMonth = finances[i + 1][1];
+    var monthlyChange = nextMonth - currentMonth;
+    totalChange = totalChange + monthlyChange;
+  }
+}
+
+console.log(totalChange);
+const average = totalChange / (finances.length - 1);
+console.log(average);
+
+// console.log("finances: ", finances);
+// console.log("finances[i]: ", finances[0]);
+// console.log("finances[i][1]: ", finances[0][1]);
 
 // console.log(averageChanges);
 // will need to calculate the changes between each value and then divide them by 86
